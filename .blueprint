@@ -1,2 +1,20 @@
+created:
+    - database/factories/QuoteFactory.php
+    - database/factories/MovieFactory.php
+    - database/factories/CharacterFactory.php
+    - database/migrations/2021_08_20_210141_create_quotes_table.php
+    - database/migrations/2021_08_20_210142_create_movies_table.php
+    - database/migrations/2021_08_20_210143_create_characters_table.php
+    - database/migrations/2021_08_20_210144_create_characters_movie_table.php
+    - database/migrations/2021_08_20_210145_create_character_movies_table.php
+    - app/Models/Quote.php
+    - app/Models/Movie.php
+    - app/Models/Character.php
+    - database/seeders/QuoteSeeder.php
+    - database/seeders/MovieSeeder.php
+    - database/seeders/CharacterSeeder.php
 models:
-    User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, two_factor_secret: 'text nullable', two_factor_recovery_codes: 'text nullable', remember_token: 'string:100 nullable', current_team_id: 'biginteger unsigned nullable', profile_photo_path: 'string:2048 nullable' }
+    User: {  }
+    Quote: { content: longtext, movie_timestamp: float, movie_id: 'id foreign', character_id: 'id foreign', relationships: { belongsTo: 'Movie, Character' } }
+    Movie: { title: 'string:400', overview: 'longtext nullable', release_date: 'date nullable', cover_url: 'string nullable', phase: 'integer nullable', duration: 'integer nullable', directed_by: 'string:400 nullable', relationships: { hasMany: Quote, belongsToMany: Characters } }
+    Character: { name: 'string:400', description: 'longtext nullable', relationships: { hasMany: Quote, belongsToMany: Movies } }
