@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/quotes', [QuoteController::class, 'index']);
+    Route::get('/quotes', [QuoteController::class, 'index'])->name('quotes.all');
     Route::get('/quotes/random', [QuoteController::class, 'random']);
     Route::get('/quotes/{id}', [QuoteController::class, 'show']);
 

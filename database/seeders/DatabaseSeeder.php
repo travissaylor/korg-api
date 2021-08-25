@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             CharacterSeeder::class,
             MovieSeeder::class,
             QuoteSeeder::class,
+            RoleSeeder::class,
         ]);
     }
 }
