@@ -18,7 +18,7 @@ class CreateQuotesTable extends Migration
         Schema::create('quotes', function (Blueprint $table) {
             $table->id();
             $table->longText('content');
-            $table->float('movie_timestamp');
+            $table->float('movie_timestamp')->nullable();
             $table->foreignId('movie_id')->constrained();
             $table->foreignId('character_id')->constrained();
             $table->timestamps();

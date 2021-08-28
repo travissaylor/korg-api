@@ -23,17 +23,17 @@ class Dashboard extends Component
         } else {
             $this->sortDirection = "ASC";
         }
-        
+
         $this->sortField = $field;
     }
 
     public function render()
     {
-        $quotes = Quote::search('content', $this->search)
+        $quotes = Quote::select('quotes.*')
             ->join('movies', 'quotes.movie_id', '=', 'movies.ID')
             ->join('characters', 'quotes.character_id', '=', 'characters.ID')
+            ->search('content', $this->search)
             ->orderBy($this->sortField, $this->sortDirection)->paginate(10);
-        // $quotes = Quote::with(['movie', 'character'])->search('content', $this->search)->orderBy($this->sortField, $this->sortDirection)->paginate(10);
 
         return view('livewire.quotes.dashboard', ['quotes' => $quotes]);
     }

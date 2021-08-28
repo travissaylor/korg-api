@@ -28,7 +28,7 @@
                                 {{ $quote->movie->title }}
                             </x-table.cell>
                             <x-table.cell class="text-right text-sm font-medium">
-                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                <a href="{{ route('admin.quotes.edit', ['id' => $quote->id]) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                             </x-table.cell>
                         </x-table.row>
                     @empty

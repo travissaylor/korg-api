@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\QuoteUIController;
+use App\Http\Livewire\Quotes\Add;
 use App\Http\Livewire\Quotes\Dashboard;
+use App\Http\Livewire\Quotes\Edit;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,5 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::prefix('admin')->middleware('role:admin')->as('admin.')->group(function () {
         // Route::resource('quotes', QuoteUIController::class);
         Route::get('/quotes', Dashboard::class)->name('quotes.index');
+        Route::get('/quotes/new', Add::class)->name('quotes.new');
+        Route::get('/quotes/{id}/edit', Edit::class)->name('quotes.edit');
     });
 });
