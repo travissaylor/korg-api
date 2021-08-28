@@ -11,10 +11,6 @@
                         Korg API Documentation
                     </h1>
 
-                    @if (auth()->user()->role_id === 1) 
-                        <h2>Subscriber</h2>
-                    @endif
-
                     <p class="mt-6 text-gray-500">
                         Here is a list of all the current endpoints. We are constantly trying to add functionality,
                         update content, and fix bugs. Let us know if we can do anything to make this experience better.

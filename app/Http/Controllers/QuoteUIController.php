@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Quote;
 use Illuminate\Http\Request;
 
 class QuoteUIController extends Controller
@@ -13,7 +14,8 @@ class QuoteUIController extends Controller
      */
     public function index()
     {
-        //
+        $quotes = Quote::with(['movie', 'character'])->get();
+        return view('admin.quotes.index', ['quotes' => $quotes]);
     }
 
     /**

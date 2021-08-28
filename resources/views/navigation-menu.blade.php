@@ -20,6 +20,12 @@
                             :active="request()->routeIs('api-tokens.index')">
                             {{ __('API Tokens') }}
                         </x-jet-nav-link>
+                        @if (auth()->user()->role_id === 1) 
+                        <x-jet-nav-link href="{{ route('admin.quotes.index') }}"
+                            :active="request()->routeIs('admin.quotes.index')">
+                            {{ __('Quotes') }}
+                        </x-jet-nav-link>
+                        @endif
                     @endauth
                 </div>
             </div>
