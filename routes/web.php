@@ -4,6 +4,7 @@ use App\Http\Controllers\QuoteUIController;
 use App\Http\Livewire\Quotes\Add;
 use App\Http\Livewire\Quotes\Dashboard;
 use App\Http\Livewire\Quotes\Edit;
+use App\Http\Livewire\Quotes\Show;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         // Route::resource('quotes', QuoteUIController::class);
         Route::get('/quotes', Dashboard::class)->name('quotes.index');
         Route::get('/quotes/new', Add::class)->name('quotes.new');
+        Route::get('/quotes/{id}', Show::class)->name('quotes.show');
         Route::get('/quotes/{id}/edit', Edit::class)->name('quotes.edit');
     });
 });

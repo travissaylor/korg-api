@@ -31,11 +31,20 @@ class Edit extends Component
         $this->selectedCharacterId = $this->quote->character_id;
     }
 
+    public function delete()
+    {
+        $this->quote->delete();
+
+        return redirect()->route('admin.quotes.index');
+    }
+
     public function save()
     {
         $this->validate();
 
         $this->quote->update(['movie_id' => $this->selectedMovieId, 'character_id' => $this->selectedCharacterId]);
+
+        return redirect()->route('admin.quotes.show', ['id' => $this->quote->id]);
     }
 
     public function render()
