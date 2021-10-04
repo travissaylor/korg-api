@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:sanctum')->group(function () {
+Route::middleware(['auth:sanctum', 'cors'])->group(function () {
     Route::get('/quotes', [QuoteController::class, 'index'])->name('quotes.all');
     Route::get('/quotes/random', [QuoteController::class, 'random']);
     Route::get('/quotes/{id}', [QuoteController::class, 'show']);
